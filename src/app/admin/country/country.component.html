@@ -1,0 +1,66 @@
+<div class="country container">
+  <form class="filter" [formGroup]="filterCountry">
+    <mat-form-field>
+      <input formControlName="country_name" matInput placeholder="Country name">
+    </mat-form-field>
+  </form>
+
+  <button type="submit" (click)="insert_country()" mat-icon-button class="primary-background primary-font-color btn_add">
+    <mat-icon>add</mat-icon>
+  </button>
+
+  <div class="country_container" *ngFor="let country of countryObservable | async | countries:filterCountryValue">
+    
+    <mat-accordion>
+      <mat-expansion-panel class="primary-background">
+        
+        <mat-expansion-panel-header>
+          <mat-panel-title class="primary-font-color primary-font-size">
+            {{country.country_name}}
+          </mat-panel-title>
+          <mat-panel-description>
+            <p class="primary-font-color">
+              description !!!
+            </p>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <!-- show info -->
+        <div *ngIf="!target_this_form(country.country_name)">
+          <p *ngFor="let city of country.cities">
+            {{city.city_name}}
+          </p>
+        </div>
+
+        <!-- show edit -->
+        <form *ngIf="target_this_form(country.country_name)" class="country_body_edit" [formGroup]="editCountry">
+          <mat-form-field>
+            <input formControlName="country_name" matInput placeholder="Country name" [value]="country.country_name">
+          </mat-form-field>
+          <button (click)="insert_city()" mat-raised-button class="secondary-background primary-font-color">add city</button>
+          <div class="cities" formArrayName="cities">
+            <div class="city_record d-flex" *ngFor="let city of editCountry.get('cities')['controls'];let i = index;">
+              <mat-form-field>
+                <input [formControlName]="i" matInput placeholder="City name">
+              </mat-form-field>
+              <button (click)="delete_city(i)" mat-icon-button>
+                <mat-icon>highlight_off</mat-icon>
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <!-- country block controls -->
+        <div class="controls d-flex justify-content-center">
+          <button (click)="delete_country(country.country_id)" mat-raised-button class="secondary-background primary-font-color">delete</button>
+          <button *ngIf="!target_this_form(country.country_name)" (click)="active_edit_mode(country)" mat-raised-button class="secondary-background primary-font-color">edit</button>
+          <button *ngIf="target_this_form(country.country_name)" (click)="end_edit_mode()" mat-raised-button class="secondary-background primary-font-color">cancel</button>
+          <button *ngIf="target_this_form(country.country_name)" (click)="update_country(country.country_id)" mat-raised-button class="secondary-background primary-font-color">update</button>
+        </div>
+
+      </mat-expansion-panel>
+    </mat-accordion>
+
+  </div>
+  
+</div>

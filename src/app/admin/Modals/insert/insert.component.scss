@@ -1,0 +1,10 @@
+/deep/ .new_city {
+    padding:0px 0px 15px 0px;
+    h3 {
+        margin: 0px 0px 0px 5px!important;
+        padding: 0px!important;
+    }
+    & > form {
+        width: 100%;
+    }
+}

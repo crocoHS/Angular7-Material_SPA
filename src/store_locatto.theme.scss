@@ -1,0 +1,30 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+$store-locatto-app-primary: mat-palette($mat-lime, 900);
+$store-locatto-app-accent:  mat-palette($mat-pink, A200);
+
+$store-locatto-app-warn: mat-palette($mat-red);
+
+$store-locatto-app-theme: mat-light-theme($store-locatto-app-primary, $store-locatto-app-accent, $store-locatto-app-warn);
+
+@include angular-material-theme($store-locatto-app-theme);
+
+.primary-background {
+    background-color: #81ac00;
+}
+.secondary-background {
+    background-color: #827717;
+}
+
+.primary-font-color {
+    color:#f9fbe7;
+}
+.primary-font-size {
+    font-size: 24px
+}
+
+mat-form-field {
+    width: 100%;
+}

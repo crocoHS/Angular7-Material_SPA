@@ -1,0 +1,35 @@
+/deep/ .country {
+    padding-top: 25px;
+    .btn_add {
+        margin-bottom:25px; 
+    }
+    .controls {
+        button {
+            margin:0 10px;
+        }
+    }
+    .country_container {
+        margin-bottom:10px; 
+        .mat-accordion {
+            .mat-expansion-panel {
+                .mat-expansion-panel-content {
+                    padding-top: 10px;
+                    background-color: #caca53;
+                }
+            }
+        }
+        .mat-expansion-panel-header-description {
+            p {
+                width: 100%;
+                text-align: right;
+                font-weight: bold;
+            }
+        }
+        .cities {
+            padding:15px 0px 0px 0px;
+            .city_record {
+                width:80%;
+            }
+        }
+    }
+}
