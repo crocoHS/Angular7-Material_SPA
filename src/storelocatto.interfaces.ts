@@ -2,8 +2,6 @@ export interface location {
     brand_pin_logo: string;
     latitude: string;
     loc_address: string;
-    loc_city_id: string;
-    loc_id: string;
     loc_name: string;
     loc_phone: string;
     longitude: string;
@@ -13,7 +11,7 @@ export interface BrandInt {
     brand_background_color: string;
     brand_logo: string;
     brand_name: string;
-    countries_ids: string[];
+    countries: string[];
     locations: location[];
 }
 

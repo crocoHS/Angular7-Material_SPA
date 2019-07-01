@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>Find Country</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <input type="text" matInput [formControl]="newCountry_ctrl" [matAutocomplete]="auto">
+  </mat-form-field>  
+  <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+    <mat-option *ngFor="let option of filterdOpitions | async" [value]="option" >{{option.country_name}}</mat-option>
+  </mat-autocomplete>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()" class="primary-background primary-font-color">No Thanks</button>
+  <button mat-button (click)="onYesClick()" class="primary-background primary-font-color">Ok</button>
+</div>

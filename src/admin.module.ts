@@ -5,16 +5,21 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 //admin services
 import { Country } from './services/country.service';
+import { Brand } from './services/brand.service';
 
 //admin components
 import { CountryComponent } from './app/admin/country/country.component';
+import { BrandComponent } from './app/admin/brand/brand.component';
 import { AdminComponent } from './app/admin/admin.component';
 import { UpdateComponent } from './app/admin/Modals/update/update.component';
-import { InsertComponent } from './app/admin/Modals/insert/insert.component';
+import { CountryInsertComponent } from './app/admin/Modals/country_insert/country.insert.component';
+import { BrandInsertComponent } from './app/admin/Modals/brand_insert/brand.insert.component';
 import { DeleteComponent } from './app/admin/Modals/delete/delete.component';
+import { DynamicDialogComponent } from './app/admin/Modals/dynamic-dialog/dynamic-dialog.component';
+import { AddCountryComponent } from './app/admin/brand/add-country/add-country.component';
 
 //admin filters
-import { CountriesPipe } from './app/admin/Filters/countries.filter';
+import { PostTypePipe } from './app/admin/Filters/posttype.filter';
 
 //material componetns
 import { MaterialModule } from './shared.module';
@@ -24,7 +29,8 @@ const admin_routes:Routes = [
         path:'',
         component:AdminComponent,
         children: [
-            { path:'country',component:CountryComponent }
+            { path:'country',component:CountryComponent },
+            { path:'brand',component:BrandComponent }
         ]
     }
 ]
@@ -33,10 +39,14 @@ const admin_routes:Routes = [
     declarations: [
         AdminComponent,
         CountryComponent,
+        BrandComponent,
         UpdateComponent,
-        InsertComponent,
+        CountryInsertComponent,
+        BrandInsertComponent,
         DeleteComponent,
-        CountriesPipe
+        PostTypePipe,
+        DynamicDialogComponent,
+        AddCountryComponent
     ],
     imports: [
         CommonModule,
@@ -50,9 +60,12 @@ const admin_routes:Routes = [
     ],
     entryComponents: [
         UpdateComponent,
-        InsertComponent,
-        DeleteComponent
+        CountryInsertComponent,
+        BrandInsertComponent,
+        DeleteComponent,
+        DynamicDialogComponent,
+        AddCountryComponent
     ],
-    providers: [Country]
+    providers: [Country,Brand]
   })
 export class Admin { }

@@ -1,0 +1,19 @@
+/deep/ .admin-drawer-container_content {
+    .post_type_container {
+        .mat-accordion {
+            .mat-expansion-panel {
+                .mat-expansion-panel-content {
+                    .mat-card{
+                        margin:15px 0px 15px 0px;
+                        background-color: #b1b145;
+                    }
+                    .countries {
+                        .mat-card {
+                            margin:0px 15px 0px 0px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

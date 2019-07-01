@@ -1,4 +1,4 @@
-<div class="country container">
+<div class="post_type container">
   <form class="filter" [formGroup]="filterCountry">
     <mat-form-field>
       <input formControlName="country_name" matInput placeholder="Country name">
@@ -9,7 +9,7 @@
     <mat-icon>add</mat-icon>
   </button>
 
-  <div class="country_container" *ngFor="let country of countryObservable | async | countries:filterCountryValue">
+  <div class="post_type_container" *ngFor="let country of countryObservable | async | post_type_filter:filterCountryValue">
     
     <mat-accordion>
       <mat-expansion-panel class="primary-background">
@@ -38,8 +38,8 @@
             <input formControlName="country_name" matInput placeholder="Country name" [value]="country.country_name">
           </mat-form-field>
           <button (click)="insert_city()" mat-raised-button class="secondary-background primary-font-color">add city</button>
-          <div class="cities" formArrayName="cities">
-            <div class="city_record d-flex" *ngFor="let city of editCountry.get('cities')['controls'];let i = index;">
+          <div class="post_type_formGroup" formArrayName="cities">
+            <div class="post_type_formGroup_record d-flex" *ngFor="let city of editCountry.get('cities')['controls'];let i = index;">
               <mat-form-field>
                 <input [formControlName]="i" matInput placeholder="City name">
               </mat-form-field>

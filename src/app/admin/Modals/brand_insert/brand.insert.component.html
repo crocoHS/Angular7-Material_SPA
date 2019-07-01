@@ -1,0 +1,49 @@
+<h1 mat-dialog-title>New Brand</h1>
+
+<form class="brand_body_edit" [formGroup]="newBrand">
+  <mat-form-field>
+    <input formControlName="brand_name" matInput placeholder="Brand name">
+  </mat-form-field>
+  <mat-form-field>
+    <input formControlName="brand_background_color" matInput placeholder="Brand background color">
+  </mat-form-field>
+  <mat-form-field>
+    <input formControlName="brand_logo" matInput placeholder="Brand logo">
+  </mat-form-field>
+
+  <button (click)="add_new_location()" mat-raised-button class="secondary-background primary-font-color">add
+    location</button>
+
+  <div class="locations" formArrayName="locations">
+    <div class="location_record d-flex"
+      *ngFor="let location of newBrand.get('locations')['controls'];let locationIndex = index;">
+      <mat-card>
+        <div [formGroupName]="locationIndex">
+          <mat-form-field>
+            <input formControlName="loc_name" matInput placeholder="Location name">
+          </mat-form-field>
+          <mat-form-field>
+            <input formControlName="loc_phone" matInput placeholder="Location phone">
+          </mat-form-field>
+          <mat-form-field>
+            <input formControlName="longitude" matInput placeholder="Location longitude">
+          </mat-form-field>
+          <mat-form-field>
+            <input formControlName="latitude" matInput placeholder="Location latitude">
+          </mat-form-field>
+          <mat-form-field>
+            <input formControlName="loc_address" matInput placeholder="Location address">
+          </mat-form-field>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+
+</form>
+
+<div mat-dialog-actions class="d-flex justify-content-end">
+  <button type="submit" (click)="onNoClick()" mat-raised-button
+    class="primary-background primary-font-color">Cancel</button>
+  <button type="submit" (click)="onYesClick()" mat-raised-button
+    class="primary-background primary-font-color">Insert</button>
+</div>

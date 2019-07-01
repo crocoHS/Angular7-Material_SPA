@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormArray } from '@angular/forms';
 import { Observable } from 'rxjs';
-
 import { debounceTime } from 'rxjs/operators';
 
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -12,7 +11,7 @@ import { Country } from '../../../services/country.service';
 import { CountryItemIrt,CityInt } from '../../../storelocatto.interfaces';
 
 import { UpdateComponent } from '../Modals/update/update.component';
-import { InsertComponent } from '../Modals/insert/insert.component';
+import { CountryInsertComponent } from '../Modals/country_insert/country.insert.component';
 import { DeleteComponent } from '../Modals/delete/delete.component';
 
 @Component({
@@ -81,7 +80,7 @@ export class CountryComponent implements OnInit {
   }
 
   insert_country() {
-    const dialogRef = this._dialog.open(InsertComponent, { width: '450px'});
+    const dialogRef = this._dialog.open(CountryInsertComponent, { width: '450px'});
     dialogRef.afterClosed().subscribe(result=>{
       if(result) {
         const cities = result.cities.map((city:CityInt)=>{

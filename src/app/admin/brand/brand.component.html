@@ -1,0 +1,144 @@
+<div class="post_type container">
+    <form class="filter" [formGroup]="filterBrand">
+      <mat-form-field>
+        <input formControlName="brand_name" matInput placeholder="Brand name">
+      </mat-form-field>
+    </form>
+
+  <button type="submit" (click)="insert_brand()" mat-icon-button
+    class="primary-background primary-font-color btn_add">
+    <mat-icon>add</mat-icon>
+  </button>
+
+  <div class="post_type_container" *ngFor="let brand of BrandObservable | async | post_type_filter:filterBrandValue">
+
+    <mat-accordion>
+      <mat-expansion-panel class="primary-background">
+
+        <mat-expansion-panel-header>
+          <mat-panel-title class="primary-font-color primary-font-size">
+            {{brand.brand_name}}
+          </mat-panel-title>
+          <mat-panel-description>
+            <p class="primary-font-color">
+              description !!!
+            </p>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <!-- show info -->
+        <div class="brand_info" *ngIf="!target_this_form(brand.brand_name)">
+          <p>
+            <span>Name : </span>{{brand.brand_name}}
+          </p>
+          <p>
+            <span>Background Color : </span>{{brand.brand_background_color}}
+          </p>
+          <p>
+            <span>Logo : </span>{{brand.brand_logo}}
+          </p>
+          <div class="countries d-flex">
+            <mat-card *ngFor="let country of brand.countries">
+              <p>
+                <span>{{country}}</span>
+              </p>
+            </mat-card>
+          </div>
+          <mat-card *ngFor="let loc of brand.locations">
+            <p>
+              <span>Location Name : </span>{{loc.loc_name}}
+            </p>
+            <p>
+              <span>Phone : </span>{{loc.loc_phone}}
+            </p>
+            <p>
+              <span>Longitude : </span>{{loc.longitude}}
+            </p>
+            <p>
+              <span>Latitude : </span>{{loc.latitude}}
+            </p>
+            <p>
+              <span>Address : </span>{{loc.loc_address}}
+            </p>
+          </mat-card>
+        </div>
+
+        <!-- show edit -->
+        <form *ngIf="target_this_form(brand.brand_name)" class="brand_body_edit" [formGroup]="editBrand">
+          <mat-form-field>
+            <input formControlName="brand_name" matInput placeholder="Brand name" [value]="brand.brand_name">
+          </mat-form-field>
+          <mat-form-field>
+            <input formControlName="brand_background_color" matInput placeholder="Brand background color"
+              [value]="brand.brand_background_color">
+          </mat-form-field>
+          <mat-form-field>
+            <input formControlName="brand_logo" matInput placeholder="Brand logo" [value]="brand.brand_logo">
+          </mat-form-field>
+
+          <!-- add new country -->
+          <button (click)="insert_country()" mat-raised-button class="secondary-background primary-font-color">add Country</button>
+
+          <div class="post_type_formGroup" formArrayName="countries">
+            <div class="post_type_formGroup_record d-flex" *ngFor="let country of editBrand.get('countries')['controls'];let i = index;">
+              <mat-form-field>
+                <input [formControlName]="i" matInput placeholder="country">
+              </mat-form-field>
+              <button (click)="delete_country(i)" mat-icon-button>
+                <mat-icon>highlight_off</mat-icon>
+              </button>
+            </div>
+          </div>
+
+          <!-- add new location -->
+          <button (click)="insert_location()" mat-raised-button class="secondary-background primary-font-color">add location</button>
+
+          <div class="post_type_formGroup" formArrayName="locations">
+            <div class="post_type_formGroup_record d-flex"
+              *ngFor="let location of editBrand.get('locations')['controls'];let locationIndex = index;">
+              <mat-card>
+                <div [formGroupName]="locationIndex">
+                  <div class="d-flex justify-content-end">
+                    <button (click)="delete_location(locationIndex)" mat-icon-button>
+                      <mat-icon>highlight_off</mat-icon>
+                    </button>
+                  </div>
+                  <mat-form-field>
+                    <input formControlName="loc_name" matInput placeholder="Location name">
+                  </mat-form-field>
+                  <mat-form-field>
+                    <input formControlName="loc_phone" matInput placeholder="Location phone">
+                  </mat-form-field>
+                  <mat-form-field>
+                    <input formControlName="longitude" matInput placeholder="Location longitude">
+                  </mat-form-field>
+                  <mat-form-field>
+                    <input formControlName="latitude" matInput placeholder="Location latitude">
+                  </mat-form-field>
+                  <mat-form-field>
+                    <input formControlName="loc_address" matInput placeholder="Location address">
+                  </mat-form-field>
+                </div>
+              </mat-card>
+            </div>
+          </div>
+
+        </form>
+
+        <!-- country block controls -->
+        <div class="controls d-flex justify-content-center">
+          <button (click)="delete_brand(brand.brand_id)" mat-raised-button
+            class="secondary-background primary-font-color">delete</button>
+          <button *ngIf="!target_this_form(brand.brand_name)" (click)="active_edit_mode(brand)" mat-raised-button
+            class="secondary-background primary-font-color">edit</button>
+          <button *ngIf="target_this_form(brand.brand_name)" (click)="end_edit_mode()" mat-raised-button
+            class="secondary-background primary-font-color">cancel</button>
+          <button *ngIf="target_this_form(brand.brand_name)" (click)="update_brand(brand.brand_id)" mat-raised-button
+            class="secondary-background primary-font-color">update</button>
+        </div>
+
+      </mat-expansion-panel>
+    </mat-accordion>
+
+  </div>
+</div>

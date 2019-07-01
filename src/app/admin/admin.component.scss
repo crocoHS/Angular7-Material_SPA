@@ -1,0 +1,52 @@
+/deep/ .admin-drawer-container {
+    height: 100vh;
+    .admin-drawer-container_sidenav {
+        height: 100%;
+        width:285px;
+        padding:15px 0px 0px 15px;
+        .sidenav_router_link {
+            font-weight: bold;
+            color:#81ac00;
+            font-size: 24px;
+            display: block;
+            width: 100%;
+        }
+    }
+    .admin-drawer-container_content {
+        .post_type {
+            padding-top: 25px;
+            .btn_add {
+                margin-bottom:25px; 
+            }
+            .controls {
+                button {
+                    margin:0 10px;
+                }
+            }
+            .post_type_container {
+                margin-bottom:10px; 
+                .mat-accordion {
+                    .mat-expansion-panel {
+                        .mat-expansion-panel-content {
+                            padding-top: 10px;
+                            background-color: #caca53;
+                            .post_type_formGroup {
+                                padding:15px 0px 15px 0px;
+                                .post_type_formGroup_record {
+                                    width:80%;
+                                }
+                            }
+                        }
+                    }
+                }
+                .mat-expansion-panel-header-description {
+                    p {
+                        width: 100%;
+                        text-align: right;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+    }
+}

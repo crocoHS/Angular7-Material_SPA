@@ -5,14 +5,14 @@ import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-insert',
-  templateUrl: './insert.component.html',
-  styleUrls: ['./insert.component.scss'],
+  templateUrl: './country.insert.component.html',
+  styleUrls: ['./country.insert.component.scss'],
   encapsulation: ViewEncapsulation.Emulated
 })
-export class InsertComponent implements OnInit{
+export class CountryInsertComponent implements OnInit{
   newCountry:FormGroup;
 
-  constructor(private dialogRef:MatDialogRef<InsertComponent>) { }
+  constructor(private dialogRef:MatDialogRef<CountryInsertComponent>) { }
 
   ngOnInit() {
     this.newCountry = new FormGroup({

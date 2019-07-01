@@ -41,4 +41,12 @@ export class Country {
   updateItem(item: any) {
     return this.itemsCollection.doc(item.country_id).update(item.body);
   }
+
+  find_country(search_value: string) {
+    return this.db.collection('countries',ref => ref
+    .orderBy("country_name")
+    .startAt(search_value.toLocaleLowerCase())
+    .endAt(search_value.toLocaleLowerCase()+"\uf8ff"));
+  }
+
 }
