@@ -1,0 +1,32 @@
+<div class="d-flex justify-content-center align-items-center">
+  <div class="d-flex align-items-center">
+    <form name="form" (ngSubmit)="onSubmitRegister(registerForm)" #registerForm="ngForm" [mustMatch]="['password','password_confirm']" novalidate>
+      <mat-form-field>
+        <input type="text" matInput placeholder="First Name" ngModel name="fName" required #fName="ngModel">
+        <mat-error *ngIf="fName.errors?.required">First Name is needed</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input type="text" matInput placeholder="Last Name" ngModel name="sName" required #sName="ngModel">
+        <mat-error *ngIf="sName.errors?.required">Last Name is needed</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input type="email" matInput placeholder="E-mail" ngModel name="email" required email #email="ngModel">
+        <mat-error *ngIf="email.errors?.required">email Name is needed</mat-error>
+        <mat-error *ngIf="email.errors?.email">email is not valid</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input type="password" matInput placeholder="Password" ngModel name="password" required minlength="6" #password="ngModel">
+        <mat-error *ngIf="password.errors?.required">password is needed</mat-error>
+        <mat-error *ngIf="password.errors?.minlength">password needs to be 6 min chars</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input type="password" matInput placeholder="Confirm Password" name="password_confirm" required ngModel #password_confirm="ngModel" (ngModelChange)="password_confirm.control.markAsTouched()">
+        <mat-error *ngIf="password_confirm.errors?.required">password needs to be confirmed</mat-error>
+        <mat-error *ngIf="password_confirm.errors?.mustMatch">password is not matching</mat-error>
+      </mat-form-field>
+      <div class="d-flex justify-content-end">
+        <button [disabled]="!registerForm.valid" mat-button>Register</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -12,38 +12,50 @@
             width: 100%;
         }
     }
-    .admin-drawer-container_content {
-        .post_type {
-            padding-top: 25px;
-            .btn_add {
-                margin-bottom:25px; 
+    .mat-drawer-content {
+        position: relative;
+        .admin-drawer-container_content {
+            .welcome {
+                position: absolute;
+                font-weight: bold;
+                color:#81ac00;
+                font-size: 38px;
+                top:50%;
+                left:50%;
+                transform: translate(-50%,-50%);
             }
-            .controls {
-                button {
-                    margin:0 10px;
+            .post_type {
+                padding-top: 25px;
+                .btn_add {
+                    margin-bottom:25px; 
                 }
-            }
-            .post_type_container {
-                margin-bottom:10px; 
-                .mat-accordion {
-                    .mat-expansion-panel {
-                        .mat-expansion-panel-content {
-                            padding-top: 10px;
-                            background-color: #caca53;
-                            .post_type_formGroup {
-                                padding:15px 0px 15px 0px;
-                                .post_type_formGroup_record {
-                                    width:80%;
+                .controls {
+                    button {
+                        margin:0 10px;
+                    }
+                }
+                .post_type_container {
+                    margin-bottom:10px; 
+                    .mat-accordion {
+                        .mat-expansion-panel {
+                            .mat-expansion-panel-content {
+                                padding-top: 10px;
+                                background-color: #caca53;
+                                .post_type_formGroup {
+                                    padding:15px 0px 15px 0px;
+                                    .post_type_formGroup_record {
+                                        width:80%;
+                                    }
                                 }
                             }
                         }
                     }
-                }
-                .mat-expansion-panel-header-description {
-                    p {
-                        width: 100%;
-                        text-align: right;
-                        font-weight: bold;
+                    .mat-expansion-panel-header-description {
+                        p {
+                            width: 100%;
+                            text-align: right;
+                            font-weight: bold;
+                        }
                     }
                 }
             }

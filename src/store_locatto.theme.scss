@@ -11,20 +11,77 @@ $store-locatto-app-theme: mat-light-theme($store-locatto-app-primary, $store-loc
 
 @include angular-material-theme($store-locatto-app-theme);
 
+html,body {
+    font-family: 'Raleway', sans-serif;
+    background-color: palegreen;
+}
+
 .primary-background {
     background-color: #81ac00;
 }
 .secondary-background {
     background-color: #827717;
 }
+.third-background {
+    background-color: darkgreen;
+}
 
 .primary-font-color {
     color:#f9fbe7;
 }
+.secondary-font-color {
+    color:#6c9000;
+}
+.third-font-color {
+    color:darkgreen;
+}
+
 .primary-font-size {
-    font-size: 24px
+    font-size: 24px;
+}
+.secondary-font-size {
+    font-size: 28px;
+}
+
+.primary-spacing {
+    margin:15px 0px!important;
 }
 
 mat-form-field {
     width: 100%;
+}
+
+.page {
+    width: 100vw;
+    height: 100vh;
+    .page_mid-box {
+        width: 50%;
+        height: 50%;
+    }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+    -webkit-text-fill-color: darkgreen !important;
+}
+
+.fab-theme-btn {
+    position: relative;
+    height: 50px;
+    width: 50px;
+    background-color: darkgreen;
+    border-radius: 50%;
+    display: inline-block;
+    span {
+        position: absolute;
+        top:50%;
+        left:50%;
+        transform: translate(-50%,-50%);
+        color:palegreen;
+        font-weight: bold;
+        letter-spacing: 1px;
+    }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormControl, FormArray } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
@@ -7,6 +7,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
 
 import { Country } from '../../../services/country.service';
+import { Auth } from '../../../services/auth.service';
 
 import { CountryItemIrt,CityInt } from '../../../storelocatto.interfaces';
 
@@ -14,13 +15,15 @@ import { UpdateComponent } from '../Modals/update/update.component';
 import { CountryInsertComponent } from '../Modals/country_insert/country.insert.component';
 import { DeleteComponent } from '../Modals/delete/delete.component';
 
+import { DynamicDialogComponent } from '../Modals/dynamic-dialog/dynamic-dialog.component';
+
 @Component({
   selector: 'app-country',
   templateUrl: './country.component.html',
   styleUrls: ['./country.component.scss'],
   
 })
-export class CountryComponent implements OnInit {
+export class CountryComponent implements OnInit, OnDestroy {
   newCountry:FormGroup;
   editCountry:FormGroup;
   filterCountry:FormGroup;
@@ -30,7 +33,7 @@ export class CountryComponent implements OnInit {
   show_this_form:string;
   edit_mode_cities_array:FormArray;
 
-  constructor(private country:Country, private _snake_bar:MatSnackBar, private _dialog:MatDialog) { }
+  constructor(private country:Country, private _snake_bar:MatSnackBar, private _dialog:MatDialog, private auth:Auth) { }
 
   ngOnInit() {
     //init filter
@@ -42,9 +45,14 @@ export class CountryComponent implements OnInit {
     .subscribe((value)=>{
       this.filterCountryValue = value.country_name;
     });
-
     //init list
     this.get_all_countries();
+    //clear admin styles
+    this.auth.authCustomRootRoute.next("none");
+  }
+
+  ngOnDestroy() {
+    this.auth.authCustomRootRoute.next("block");
   }
 
   active_edit_mode(country:CountryItemIrt) {
@@ -80,7 +88,14 @@ export class CountryComponent implements OnInit {
   }
 
   insert_country() {
-    const dialogRef = this._dialog.open(CountryInsertComponent, { width: '450px'});
+    const dialogRef = this._dialog.open(DynamicDialogComponent, 
+      { 
+        width: '450px',
+        data: {
+          component:CountryInsertComponent,
+          title: "Insert New Country"
+        }
+    });
     dialogRef.afterClosed().subscribe(result=>{
       if(result) {
         const cities = result.cities.map((city:CityInt)=>{
@@ -100,7 +115,13 @@ export class CountryComponent implements OnInit {
   }
 
   delete_country(country_id:string) {
-    const dialogRef = this._dialog.open(DeleteComponent, { width: '250px'});
+    const dialogRef = this._dialog.open(DynamicDialogComponent, {
+      width: '250px',
+      data: {
+        component: DeleteComponent,
+        title: "Delete Country"
+      }
+    });
     dialogRef.afterClosed().subscribe(result => {
       if(result) {
         this.country.deleteItem(country_id).then(()=>{
@@ -131,7 +152,14 @@ export class CountryComponent implements OnInit {
       }
     };
 
-    const dialogRef = this._dialog.open(UpdateComponent, { width: '250px'});
+    const dialogRef = this._dialog.open(DynamicDialogComponent, 
+      { 
+        width: '250px',
+        data: {
+          component: UpdateComponent,
+          title: "Update Country"
+        }
+      });
     dialogRef.afterClosed().subscribe(result => {
       if(result) {
       this.country.updateItem(item).then(()=>{

@@ -60,6 +60,9 @@
             <p>
               <span>Address : </span>{{loc.loc_address}}
             </p>
+            <p *ngIf="loc.loc_city">
+              <span>City : </span>{{loc.loc_city}}
+            </p>
           </mat-card>
         </div>
 
@@ -118,6 +121,19 @@
                   <mat-form-field>
                     <input formControlName="loc_address" matInput placeholder="Location address">
                   </mat-form-field>
+
+                  <!-- choose new city -->
+                  <div class="post_type_formGroup">
+                    <button class="secondary-background primary-font-color" mat-button [matMenuTriggerFor]="menu">Choose City</button>
+                    <mat-menu #menu="matMenu">
+                      <button *ngFor="let city of collected_cities_array" (click)="add_location_city(locationIndex,city)" mat-menu-item>{{city}}</button>
+                    </mat-menu>
+                  </div>
+
+                  <mat-form-field>
+                    <input formControlName="loc_city" matInput placeholder="Location city">
+                  </mat-form-field>
+
                 </div>
               </mat-card>
             </div>

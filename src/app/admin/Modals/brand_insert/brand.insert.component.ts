@@ -3,6 +3,8 @@ import { FormGroup, FormControl, FormArray } from '@angular/forms';
 
 import { MatDialogRef } from '@angular/material/dialog';
 
+import { DynamicDialogComponent } from '../dynamic-dialog/dynamic-dialog.component';
+
 @Component({
   selector: 'app-insert',
   templateUrl: './brand.insert.component.html',
@@ -13,7 +15,7 @@ export class BrandInsertComponent implements OnInit{
   newBrand:FormGroup;
   locations_array:FormArray;
 
-  constructor(private dialogRef:MatDialogRef<BrandInsertComponent>) { }
+  constructor(private dialogRef:MatDialogRef<DynamicDialogComponent>) { }
 
   ngOnInit() {
     //all locations

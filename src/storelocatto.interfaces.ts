@@ -5,6 +5,7 @@ export interface location {
     loc_name: string;
     loc_phone: string;
     longitude: string;
+    loc_city: string;
 }
 
 export interface BrandInt {

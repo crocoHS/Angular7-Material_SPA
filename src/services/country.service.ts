@@ -49,4 +49,9 @@ export class Country {
     .endAt(search_value.toLocaleLowerCase()+"\uf8ff"));
   }
 
+  get_country(value:string) {
+    return this.db.collection('countries',ref => ref.where('country_name','==',value))
+    .valueChanges();
+  }
+
 }

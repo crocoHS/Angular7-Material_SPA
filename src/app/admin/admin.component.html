@@ -9,6 +9,7 @@
         <button type="button" mat-icon-button (click)="drawer.toggle()">
             <mat-icon>dehaze</mat-icon>
         </button>
+        <span [style.display]="authCustom" class="welcome">Welcome {{currentUserName}}</span>
         <router-outlet></router-outlet>
     </div>
 

@@ -3,6 +3,8 @@ import { FormGroup, FormControl, FormArray } from '@angular/forms';
 
 import { MatDialogRef } from '@angular/material/dialog';
 
+import { DynamicDialogComponent } from '../dynamic-dialog/dynamic-dialog.component';
+
 @Component({
   selector: 'app-insert',
   templateUrl: './country.insert.component.html',
@@ -12,7 +14,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 export class CountryInsertComponent implements OnInit{
   newCountry:FormGroup;
 
-  constructor(private dialogRef:MatDialogRef<CountryInsertComponent>) { }
+  constructor(private dialogRef:MatDialogRef<DynamicDialogComponent>) { }
 
   ngOnInit() {
     this.newCountry = new FormGroup({

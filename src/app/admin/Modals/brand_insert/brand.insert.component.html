@@ -1,5 +1,3 @@
-<h1 mat-dialog-title>New Brand</h1>
-
 <form class="brand_body_edit" [formGroup]="newBrand">
   <mat-form-field>
     <input formControlName="brand_name" matInput placeholder="Brand name">
@@ -11,7 +9,7 @@
     <input formControlName="brand_logo" matInput placeholder="Brand logo">
   </mat-form-field>
 
-  <button (click)="add_new_location()" mat-raised-button class="secondary-background primary-font-color">add
+  <button (click)="add_new_location()" mat-raised-button class="primary-spacing secondary-background primary-font-color">add
     location</button>
 
   <div class="locations" formArrayName="locations">

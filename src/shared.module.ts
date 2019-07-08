@@ -13,7 +13,8 @@ import {
 } from '@angular/material';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { PortalModule } from '@angular/cdk/portal'
+import { MatMenuModule } from '@angular/material/menu';
+import { PortalModule } from '@angular/cdk/portal';
 
 @NgModule({
     imports: [
@@ -28,7 +29,8 @@ import { PortalModule } from '@angular/cdk/portal'
         MatIconModule,
         MatSidenavModule,
         MatAutocompleteModule,
-        PortalModule
+        PortalModule,
+        MatMenuModule
     ],
     exports: [
         MatFormFieldModule,
@@ -42,7 +44,8 @@ import { PortalModule } from '@angular/cdk/portal'
         MatIconModule,
         MatSidenavModule,
         MatAutocompleteModule,
-        PortalModule
+        PortalModule,
+        MatMenuModule
     ]
 })
 export class MaterialModule { }

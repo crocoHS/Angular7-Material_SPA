@@ -1,0 +1,10 @@
+.page {
+    .page_mid-box {
+        & > div { text-align: center; }
+        .user-controls {
+            a,span {
+                margin:0px 15px;
+            }
+        }
+    }
+}
