@@ -1,6 +1,6 @@
-<mat-drawer-container class="admin-drawer-container" autosize>
+<mat-drawer-container class="admin-drawer-container" autosize [dir]="current_lang_dir">
 
-    <mat-drawer #drawer class="admin-drawer-container_sidenav" mode="side">
+    <mat-drawer #drawer class="admin-drawer-container_sidenav" mode="side" [position]="current_drawer_position">
         <a class="sidenav_router_link" [routerLink]="[ '/admin/country' ]">Countries</a>
         <a class="sidenav_router_link" [routerLink]="[ '/admin/brand' ]">Brands</a>
     </mat-drawer>

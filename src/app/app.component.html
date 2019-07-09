@@ -1,1 +1,7 @@
-<router-outlet></router-outlet>
+<div class="main-app-box" [dir]="direction_lang">
+    <div class="main-app-box_nav">
+        <button class="fab-theme-btn" *ngIf="direction_lang == 'ltr'" (click)="choose_lang('ar')"><span>عربي</span></button>
+        <button class="fab-theme-btn" *ngIf="direction_lang == 'rtl'" (click)="choose_lang('en')"><span>En</span></button>
+    </div>
+    <router-outlet></router-outlet>
+</div>

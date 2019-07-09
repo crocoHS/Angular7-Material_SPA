@@ -1,0 +1,48 @@
+{
+    "HOME": {
+        "MAIN_TXT": "this application is not a part of any business services with the data provided.it's only purpose is to show programing skills.",
+        "START_BTN": "start"
+    },
+    "USER": {
+        "LOGIN": "Login",
+        "REGISTER": "Register"
+    },
+    "LOGIN": {
+        "EMAIL": {
+            "name": "Email",
+            "error1": "Email is required",
+            "error2": "Email is not valid"
+        },
+        "PASSWORD": {
+            "name": "Password",
+            "error1": "password is required"
+        },
+        "LOGIN_BTN": "Login"
+    },
+    "REGISTER": {
+        "F_NAME": {
+            "name":"First Name",
+            "error":"First Name is needed"
+        },
+        "L_NAME": {
+            "name":"Last Name",
+            "error":"Last Name is needed"
+        },
+        "EMAIL": {
+            "name": "Email",
+            "error1": "Email is required",
+            "error2": "Email is not valid"
+        },
+        "PASSWORD": {
+            "name": "Password",
+            "error1": "Password is required",
+            "error2": "Password min length is 6"
+        },
+        "PASSWORD_CONFIRM": {
+            "name": "Password Confirm",
+            "error1": "Password Confirm is needed",
+            "error2": "Password doesn't match"
+        },
+        "REGISTER_BTN": "Register"
+    }
+}

@@ -1,12 +1,11 @@
 <div class="page d-flex justify-content-center align-items-center">
   <div class="page_mid-box d-flex flex-column justify-content-center align-items-center">
     <p class="secondary-font-color primary-font-size">
-      this application is not a part of any business services with the data provided.<br/>
-      it's only purpose is to show programing skills.
+      {{ 'HOME.MAIN_TXT' | translate }}
     </p>
     <a class="third-font-color" href="https://github.com/andrew-basilioos/angular-spa-showcase">https://github.com/andrew-basilioos/angular-spa-showcase</a>
     <a class="fab-theme-btn secondary-font-color" [routerLink]="[ '/user' ]">
-      <span>Start</span>
+      <span>{{ 'HOME.START_BTN' | translate }}</span>
     </a>
   </div>
 </div>

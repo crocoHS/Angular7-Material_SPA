@@ -11,11 +11,7 @@ import { Auth } from '../../../services/auth.service';
 export class LoginComponent implements OnInit, OnDestroy {
   wrongUserOrPassword:Boolean = false;
 
-  constructor(private auth:Auth) { }
-
-  showUserTypes() {
-    
-  }
+  constructor(private auth:Auth) {}
 
   ngOnInit() {
     this.auth.hideUserTypes();

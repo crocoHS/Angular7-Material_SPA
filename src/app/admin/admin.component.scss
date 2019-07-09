@@ -61,4 +61,11 @@
             }
         }
     }
+    &[dir="rtl"] {
+        .admin-drawer-container_sidenav {
+            height: 100%;
+            width:285px;
+            padding:15px 15px 0px 0px;
+        }
+    }
 }

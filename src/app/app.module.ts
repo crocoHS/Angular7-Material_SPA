@@ -3,6 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 //firebase modules
 import { AngularFireModule } from "@angular/fire";
@@ -21,6 +24,7 @@ import { environment } from '../environments/environment';
 
 //app service
 import { Auth } from '../services/auth.service';
+import { MainTransService } from '../services/mainTrans.service';
 
 //app main routes
 const app_routes:Routes = [
@@ -39,6 +43,11 @@ const app_routes:Routes = [
   }
 ]
 
+//factory for httpLoadeder
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,9 +59,17 @@ const app_routes:Routes = [
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
-    RouterModule.forRoot(app_routes)
+    RouterModule.forRoot(app_routes),
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
-  providers: [Auth],
+  providers: [Auth,MainTransService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

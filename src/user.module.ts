@@ -1,7 +1,9 @@
+//core modules
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
 
 //user directives
 import { mustMatchDirective } from './app/user/mustMatch.directive';
@@ -37,7 +39,8 @@ const admin_routes:Routes = [
         RouterModule.forChild(admin_routes),
         FormsModule,
         ReactiveFormsModule,
-        MaterialModule
+        MaterialModule,
+        TranslateModule
     ],
     exports: [
         RouterModule

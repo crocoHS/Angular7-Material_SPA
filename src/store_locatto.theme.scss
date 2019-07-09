@@ -68,6 +68,21 @@ input:-webkit-autofill:active {
     -webkit-text-fill-color: darkgreen !important;
 }
 
+.mat-form-field {
+    margin:14px 0px 0px 0px;
+    .mat-form-field-wrapper {
+        .mat-form-field-flex {
+            .mat-form-field-infix {
+                font-size:24px;
+            }
+        }
+        .mat-form-field-subscript-wrapper {
+            margin:14px 0px 0px 0px;
+            font-size:16px;
+        }
+    }
+}
+
 .fab-theme-btn {
     position: relative;
     height: 50px;

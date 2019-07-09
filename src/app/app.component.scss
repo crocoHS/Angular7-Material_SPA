@@ -1,0 +1,16 @@
+/deep/ .main-app-box {
+    position: relative;
+    &[dir="rtl"] {
+        text-align: right;
+    }
+    .main-app-box_nav {
+        position: absolute;
+        top: 0%;
+        right: 0%;
+        padding: 50px 50px 0px 0px;
+        button {
+            margin:0 15px 0px 0px;
+            border:none;
+        }
+    }
+}

@@ -3,8 +3,8 @@
         <div [style.display]="authBoxLoaded" class="authBox">
             <img src="../../assets/user.png" alt="">
             <div class="user-controls">
-                <a class="secondary-font-color secondary-font-size" [routerLink]="[ '/user/login' ]">Sign in</a>
-                <a class="secondary-font-color secondary-font-size" [routerLink]="[ '/user/register' ]">Sign up</a>
+                <a class="secondary-font-color secondary-font-size" [routerLink]="[ '/user/login' ]">{{ 'USER.LOGIN' | translate}}</a>
+                <a class="secondary-font-color secondary-font-size" [routerLink]="[ '/user/register' ]">{{ 'USER.REGISTER' | translate}}</a>
             </div>
         </div>
         <router-outlet></router-outlet>

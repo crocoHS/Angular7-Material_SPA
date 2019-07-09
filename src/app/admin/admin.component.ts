@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Auth } from '../../services/auth.service';
+import { MainTransService } from '../../services/mainTrans.service';
 
 @Component({
   selector: 'app-admin',
@@ -10,8 +11,10 @@ import { Auth } from '../../services/auth.service';
 export class AdminComponent implements OnInit {
   currentUserName:string;
   authCustom:string;
+  current_drawer_position:string;
+  current_lang_dir:string;
 
-  constructor(private auth:Auth) { }
+  constructor(private auth:Auth,private mainTransService:MainTransService) { }
 
   ngOnInit() {
     this.auth.getCurrentUserData().subscribe((user:any)=>{
@@ -19,7 +22,19 @@ export class AdminComponent implements OnInit {
     });
     this.auth.authCustomRootRoute.subscribe((value:string)=>{
       this.authCustom = value;
-    })
+    });
+    //get lang value to adjust drawer position for ar and en
+    const lang_value = this.mainTransService.get_current_lang();
+    switch(lang_value) {
+      case "ar" :
+        this.current_drawer_position = "right";
+        this.current_lang_dir = "rtl";
+        break;
+      case 'en' :
+        this.current_drawer_position = "left";
+        this.current_lang_dir = "ltr";
+        break;
+    }
   }
 
 }
