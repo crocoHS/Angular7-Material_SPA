@@ -126,7 +126,7 @@ export class BrandComponent implements OnInit, OnDestroy {
         height: '450px',
         data: {
           component: BrandInsertComponent,
-          title: "Insert New Brand"
+          title: "ADMIN.BRAND.insert_new_brand"
         }
       }
     );
@@ -156,7 +156,7 @@ export class BrandComponent implements OnInit, OnDestroy {
       width: '250px',
       data: {
         component:UpdateComponent,
-        title:'Update Brand'
+        title:"ADMIN.BRAND.update_brand"
       }
     });
     dialogRef.afterClosed().subscribe(result => {
@@ -200,7 +200,7 @@ export class BrandComponent implements OnInit, OnDestroy {
       width: '250px',
       data: {
         component: DeleteComponent,
-        title: "Delete Brand"
+        title: "ADMIN.BRAND.delete_brand"
       }
     });
     dialogRef.afterClosed().subscribe(result => {

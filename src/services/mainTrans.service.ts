@@ -16,4 +16,13 @@ export class MainTransService {
     get_current_lang() {
         return this.current_lang;
     }
+
+    get_current_direction() {
+        switch(this.current_lang) {
+            case "ar" :
+                return "rtl";
+            case 'en' :
+                 return "ltr";
+        }
+    }
 }

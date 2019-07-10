@@ -3,6 +3,59 @@
         "MAIN_TXT": "هذا التطبيق ليس جزئ من اي خدمة تجارية بالمعلومات الموجودة و هدفه الوحيد هو اظهار المهارات البرمجية",
         "START_BTN": "ابداء"
     },
+    "ADMIN" : {
+        "WELCOME":"مرحبا",
+        "ITEMS": {
+            "countries":"دول",
+            "brands":"مركات"
+        },
+        "COUNTRY": {
+            "country_name":"اسم الدولة",
+            "search_country_name":"بحث باسم الدولة",
+            "add_country":"اضافة دولة",
+            "update_country":"تغير دولة",
+            "delete_country":"حذف دولة"
+        },
+        "CONTROLS": {
+            "delete":"حذف",
+            "edit":"تغير",
+            "cancel":"تجاهل",
+            "update":"موافق"
+        },
+        "CITY": {
+            "add_city":"اضافة مدينة",
+            "city_name":"اسم المدينة",
+            "choose_city":"اختر المدينة"
+        },
+        "LOCATION": {
+            "location_name":"اسم المكان",
+            "location_phone":"رقم الهاتف",
+            "location_longitude":"خط الطول",
+            "location_latitude":"خط العرض",
+            "location_address":"العنوان",
+            "location_city":"المدينة",
+            "add_location":"اضافة مكان"
+        },
+        "BRAND": {
+            "search_brand_name":"بحث باسم الماركة",
+            "brand_name":"اسم الماركة",
+            "brand_background_color":"لون خلفية الماركة",
+            "brand_logo":"لوجو الماركة",
+            "insert_new_brand":"إدخال ماركة جديدة",
+            "update_brand":"تغير بيانات الماركة",
+            "delete_brand":"حذف الماركة"
+        },
+        "DIALOG": {
+            "yes":"موافق",
+            "no":"تجاهل"
+        },
+        "DELETE_CONFIRM": {
+            "name":"تاكيد الحذف"
+        },
+        "UPATE_CONFIRM": {
+            "name":"تاكيد التغير"
+        }
+    },
     "USER": {
         "LOGIN": "الدخول",
         "REGISTER": "انشاء حساب"
@@ -43,6 +96,6 @@
             "error1": "تاكيد كلمة المرور مطلوب",
             "error2": "كلمة المرور غير متطابقة"
         },
-        "REGISTER_BTN": "تسجيل الدخول"
+        "REGISTER_BTN": "تسجيل"
     }
 }

@@ -3,6 +3,59 @@
         "MAIN_TXT": "this application is not a part of any business services with the data provided.it's only purpose is to show programing skills.",
         "START_BTN": "start"
     },
+    "ADMIN" : {
+        "WELCOME":"Welcome",
+        "ITEMS": {
+            "countries":"Countries",
+            "brands":"Brands"
+        },
+        "COUNTRY": {
+            "country_name":"Country Name",
+            "search_country_name":"Search by Country Name",
+            "add_country":"Add Country",
+            "update_country":"Update Country",
+            "delete_country":"Delete Country"
+        },
+        "CONTROLS": {
+            "delete":"Delete",
+            "edit":"Edit",
+            "cancel":"Cancel",
+            "update":"Accept"
+        },
+        "CITY": {
+            "add_city":"Add City",
+            "city_name":"City Name",
+            "choose_city":"Choose City"
+        },
+        "LOCATION": {
+            "location_name":"Location Name",
+            "location_phone":"Location Phone",
+            "location_longitude":"Location Longitude",
+            "location_latitude":"Location Latitude",
+            "location_address":"Location Address",
+            "location_city":"Location City",
+            "add_location":"Add Location"
+        },
+        "BRAND": {
+            "search_brand_name":"Search by Brand Name",
+            "brand_name":"Brand Name",
+            "brand_background_color":"Brand Background Color",
+            "brand_logo":"Brand Logo",
+            "insert_new_brand":"Insert New Brand",
+            "update_brand":"Update Brand",
+            "delete_brand":"Delete Brand"
+        },
+        "DIALOG": {
+            "yes":"Ok",
+            "no":"Cancel"
+        },
+        "DELETE_CONFIRM": {
+            "name":"Delete Confirm"
+        },
+        "UPATE_CONFIRM": {
+            "name":"Update Confirm"
+        }
+    },
     "USER": {
         "LOGIN": "Login",
         "REGISTER": "Register"

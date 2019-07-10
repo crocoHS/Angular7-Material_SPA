@@ -1,7 +1,7 @@
-<div mat-dialog-content>
-  <p>confirm Delete</p>
+<div mat-dialog-content class="d-flex justify-content-start">
+  <p>{{ 'ADMIN.DELETE_CONFIRM.name' | translate }}</p>
 </div>
 <div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()" class="primary-background primary-font-color">No Thanks</button>
-  <button mat-button (click)="onYesClick()" class="primary-background primary-font-color">Ok</button>
+  <button mat-button (click)="onNoClick()" class="primary-background primary-font-color">{{ 'ADMIN.DIALOG.no' | translate }}</button>
+  <button mat-button (click)="onYesClick()" class="primary-background primary-font-color">{{ 'ADMIN.DIALOG.yes' | translate }}</button>
 </div>

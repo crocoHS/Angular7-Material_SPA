@@ -93,7 +93,7 @@ export class CountryComponent implements OnInit, OnDestroy {
         width: '450px',
         data: {
           component:CountryInsertComponent,
-          title: "Insert New Country"
+          title: "ADMIN.COUNTRY.add_country"
         }
     });
     dialogRef.afterClosed().subscribe(result=>{
@@ -119,7 +119,7 @@ export class CountryComponent implements OnInit, OnDestroy {
       width: '250px',
       data: {
         component: DeleteComponent,
-        title: "Delete Country"
+        title: "ADMIN.COUNTRY.delete_country"
       }
     });
     dialogRef.afterClosed().subscribe(result => {
@@ -157,7 +157,7 @@ export class CountryComponent implements OnInit, OnDestroy {
         width: '250px',
         data: {
           component: UpdateComponent,
-          title: "Update Country"
+          title: "ADMIN.COUNTRY.update_country"
         }
       });
     dialogRef.afterClosed().subscribe(result => {

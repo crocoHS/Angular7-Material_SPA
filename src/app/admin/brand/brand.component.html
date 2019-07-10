@@ -1,7 +1,7 @@
 <div class="post_type container">
     <form class="filter" [formGroup]="filterBrand">
       <mat-form-field>
-        <input formControlName="brand_name" matInput placeholder="Brand name">
+        <input formControlName="brand_name" matInput placeholder="{{ 'ADMIN.BRAND.search_brand_name' | translate }}">
       </mat-form-field>
     </form>
 
@@ -19,23 +19,23 @@
           <mat-panel-title class="primary-font-color primary-font-size">
             {{brand.brand_name}}
           </mat-panel-title>
-          <mat-panel-description>
-            <p class="primary-font-color">
+          <mat-panel-description class="d-flex justify-content-end">
+            <span class="primary-font-color">
               description !!!
-            </p>
+            </span>
           </mat-panel-description>
         </mat-expansion-panel-header>
 
         <!-- show info -->
         <div class="brand_info" *ngIf="!target_this_form(brand.brand_name)">
-          <p>
-            <span>Name : </span>{{brand.brand_name}}
+          <p clas="d-flex justify-content-start">
+            <span>{{ 'ADMIN.BRAND.brand_name' | translate }} : </span><span>{{brand.brand_name}}</span>
           </p>
-          <p>
-            <span>Background Color : </span>{{brand.brand_background_color}}
+          <p clas="d-flex justify-content-start">
+            <span>{{ 'ADMIN.BRAND.brand_background_color' | translate }} : </span><span>{{brand.brand_background_color}}</span>
           </p>
-          <p>
-            <span>Logo : </span>{{brand.brand_logo}}
+          <p clas="d-flex justify-content-start">
+            <span>{{ 'ADMIN.BRAND.brand_logo' | translate }} : </span><span>{{brand.brand_logo}}</span>
           </p>
           <div class="countries d-flex">
             <mat-card *ngFor="let country of brand.countries">
@@ -45,23 +45,23 @@
             </mat-card>
           </div>
           <mat-card *ngFor="let loc of brand.locations">
-            <p>
-              <span>Location Name : </span>{{loc.loc_name}}
+            <p clas="d-flex justify-content-start">
+              <span>{{ 'ADMIN.LOCATION.location_name' | translate }} : </span><span>{{loc.loc_name}}</span>
             </p>
-            <p>
-              <span>Phone : </span>{{loc.loc_phone}}
+            <p clas="d-flex justify-content-start">
+              <span>{{ 'ADMIN.LOCATION.location_phone' | translate }} : </span><span>{{loc.loc_phone}}</span>
             </p>
-            <p>
-              <span>Longitude : </span>{{loc.longitude}}
+            <p clas="d-flex justify-content-start">
+              <span>{{ 'ADMIN.LOCATION.location_longitude' | translate }} : </span><span>{{loc.longitude}}</span>
             </p>
-            <p>
-              <span>Latitude : </span>{{loc.latitude}}
+            <p clas="d-flex justify-content-start">
+              <span>{{ 'ADMIN.LOCATION.location_latitude' | translate }} : </span><span>{{loc.latitude}}</span>
             </p>
-            <p>
-              <span>Address : </span>{{loc.loc_address}}
+            <p clas="d-flex justify-content-start">
+              <span>{{ 'ADMIN.LOCATION.location_address' | translate }} : </span><span>{{loc.loc_address}}</span>
             </p>
-            <p *ngIf="loc.loc_city">
-              <span>City : </span>{{loc.loc_city}}
+            <p clas="d-flex justify-content-start" *ngIf="loc.loc_city">
+              <span>{{ 'ADMIN.LOCATION.location_city' | translate }} : </span><span>{{loc.loc_city}}</span>
             </p>
           </mat-card>
         </div>
@@ -69,23 +69,23 @@
         <!-- show edit -->
         <form *ngIf="target_this_form(brand.brand_name)" class="brand_body_edit" [formGroup]="editBrand">
           <mat-form-field>
-            <input formControlName="brand_name" matInput placeholder="Brand name" [value]="brand.brand_name">
+            <input formControlName="brand_name" matInput placeholder="{{ 'ADMIN.BRAND.brand_name' | translate }}" [value]="brand.brand_name">
           </mat-form-field>
           <mat-form-field>
-            <input formControlName="brand_background_color" matInput placeholder="Brand background color"
+            <input formControlName="brand_background_color" matInput placeholder="{{ 'ADMIN.BRAND.brand_background_color' | translate }}"
               [value]="brand.brand_background_color">
           </mat-form-field>
           <mat-form-field>
-            <input formControlName="brand_logo" matInput placeholder="Brand logo" [value]="brand.brand_logo">
+            <input formControlName="brand_logo" matInput placeholder="{{ 'ADMIN.BRAND.brand_logo' | translate }}" [value]="brand.brand_logo">
           </mat-form-field>
 
           <!-- add new country -->
-          <button (click)="insert_country()" mat-raised-button class="secondary-background primary-font-color">add Country</button>
+          <button (click)="insert_country()" mat-raised-button class="secondary-background primary-font-color">{{ 'ADMIN.COUNTRY.add_country' | translate }}</button>
 
           <div class="post_type_formGroup" formArrayName="countries">
             <div class="post_type_formGroup_record d-flex" *ngFor="let country of editBrand.get('countries')['controls'];let i = index;">
               <mat-form-field>
-                <input [formControlName]="i" matInput placeholder="country">
+                <input [formControlName]="i" matInput placeholder="{{ 'ADMIN.COUNTRY.country_name' | translate }}">
               </mat-form-field>
               <button (click)="delete_country(i)" mat-icon-button>
                 <mat-icon>highlight_off</mat-icon>
@@ -94,7 +94,7 @@
           </div>
 
           <!-- add new location -->
-          <button (click)="insert_location()" mat-raised-button class="secondary-background primary-font-color">add location</button>
+          <button (click)="insert_location()" mat-raised-button class="secondary-background primary-font-color">{{ 'ADMIN.LOCATION.add_location' | translate }}</button>
 
           <div class="post_type_formGroup" formArrayName="locations">
             <div class="post_type_formGroup_record d-flex"
@@ -107,31 +107,31 @@
                     </button>
                   </div>
                   <mat-form-field>
-                    <input formControlName="loc_name" matInput placeholder="Location name">
+                    <input formControlName="loc_name" matInput placeholder="{{ 'ADMIN.LOCATION.location_name' | translate }}">
                   </mat-form-field>
                   <mat-form-field>
-                    <input formControlName="loc_phone" matInput placeholder="Location phone">
+                    <input formControlName="loc_phone" matInput placeholder="{{ 'ADMIN.LOCATION.location_phone' | translate }}">
                   </mat-form-field>
                   <mat-form-field>
-                    <input formControlName="longitude" matInput placeholder="Location longitude">
+                    <input formControlName="longitude" matInput placeholder="{{ 'ADMIN.LOCATION.location_longitude' | translate }}">
                   </mat-form-field>
                   <mat-form-field>
-                    <input formControlName="latitude" matInput placeholder="Location latitude">
+                    <input formControlName="latitude" matInput placeholder="{{ 'ADMIN.LOCATION.location_latitude' | translate }}">
                   </mat-form-field>
                   <mat-form-field>
-                    <input formControlName="loc_address" matInput placeholder="Location address">
+                    <input formControlName="loc_address" matInput placeholder="{{ 'ADMIN.LOCATION.location_address' | translate }}">
                   </mat-form-field>
 
                   <!-- choose new city -->
                   <div class="post_type_formGroup">
-                    <button class="secondary-background primary-font-color" mat-button [matMenuTriggerFor]="menu">Choose City</button>
+                    <button class="secondary-background primary-font-color" mat-button [matMenuTriggerFor]="menu">{{ 'ADMIN.CITY.choose_city' | translate }}</button>
                     <mat-menu #menu="matMenu">
                       <button *ngFor="let city of collected_cities_array" (click)="add_location_city(locationIndex,city)" mat-menu-item>{{city}}</button>
                     </mat-menu>
                   </div>
 
                   <mat-form-field>
-                    <input formControlName="loc_city" matInput placeholder="Location city">
+                    <input formControlName="loc_city" matInput placeholder="{{ 'ADMIN.LOCATION.location_city' | translate }}">
                   </mat-form-field>
 
                 </div>
@@ -144,13 +144,13 @@
         <!-- country block controls -->
         <div class="controls d-flex justify-content-center">
           <button (click)="delete_brand(brand.brand_id)" mat-raised-button
-            class="secondary-background primary-font-color">delete</button>
+            class="secondary-background primary-font-color">{{ 'ADMIN.CONTROLS.delete' | translate }}</button>
           <button *ngIf="!target_this_form(brand.brand_name)" (click)="active_edit_mode(brand)" mat-raised-button
-            class="secondary-background primary-font-color">edit</button>
+            class="secondary-background primary-font-color">{{ 'ADMIN.CONTROLS.edit' | translate }}</button>
           <button *ngIf="target_this_form(brand.brand_name)" (click)="end_edit_mode()" mat-raised-button
-            class="secondary-background primary-font-color">cancel</button>
+            class="secondary-background primary-font-color">{{ 'ADMIN.CONTROLS.cancel' | translate }}</button>
           <button *ngIf="target_this_form(brand.brand_name)" (click)="update_brand(brand.brand_id)" mat-raised-button
-            class="secondary-background primary-font-color">update</button>
+            class="secondary-background primary-font-color">{{ 'ADMIN.CONTROLS.update' | translate }}</button>
         </div>
 
       </mat-expansion-panel>

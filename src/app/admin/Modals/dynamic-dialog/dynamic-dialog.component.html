@@ -1,2 +1,6 @@
-<h1 mat-dialog-title>{{title}}</h1>
-<ng-template [cdkPortalOutlet]="portal"></ng-template>
+<div [dir]="current_lang_direction">
+    <div class="d-flex justify-content-start">
+        <h1 mat-dialog-title>{{ title | translate}}</h1>
+    </div>
+    <ng-template [cdkPortalOutlet]="portal"></ng-template>
+</div>
