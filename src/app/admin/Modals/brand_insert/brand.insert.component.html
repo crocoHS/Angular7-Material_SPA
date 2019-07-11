@@ -10,7 +10,7 @@
   </mat-form-field>
 
   <div class="d-flex justify-content-start">
-    <button (click)="add_new_location()" mat-raised-button class="primary-spacing secondary-background primary-font-color">
+    <button (click)="add_new_location()" mat-raised-button class="primary-spacing secondary-background primary-font-color form-btn">
         {{ 'ADMIN.LOCATION.add_location' | translate }}</button>
   </div>
 
@@ -43,7 +43,7 @@
 
 <div mat-dialog-actions class="d-flex justify-content-end">
   <button type="submit" (click)="onNoClick()" mat-raised-button
-    class="primary-background primary-font-color">{{ 'ADMIN.DIALOG.no' | translate }}</button>
+    class="primary-background primary-font-color form-btn">{{ 'ADMIN.DIALOG.no' | translate }}</button>
   <button type="submit" (click)="onYesClick()" mat-raised-button
-    class="primary-background primary-font-color">{{ 'ADMIN.DIALOG.yes' | translate }}</button>
+    class="primary-background primary-font-color form-btn">{{ 'ADMIN.DIALOG.yes' | translate }}</button>
 </div>

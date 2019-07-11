@@ -25,7 +25,7 @@
         <mat-error *ngIf="password_confirm.errors?.mustMatch">{{ 'REGISTER.PASSWORD_CONFIRM.error2' | translate }}</mat-error>
       </mat-form-field>
       <div class="d-flex justify-content-end">
-        <button [disabled]="!registerForm.valid" mat-button>{{ 'REGISTER.REGISTER_BTN' | translate }}</button>
+        <button class="form-btn" [disabled]="!registerForm.valid" mat-button>{{ 'REGISTER.REGISTER_BTN' | translate }}</button>
       </div>
     </form>
   </div>

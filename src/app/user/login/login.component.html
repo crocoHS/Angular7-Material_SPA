@@ -11,7 +11,7 @@
         <mat-error *ngIf="password.errors?.required">{{ 'LOGIN.PASSWORD.error1' | translate }}</mat-error>
       </mat-form-field>
       <div class="d-flex justify-content-end">
-        <button [disabled]="!loginForm.valid" mat-button>{{ 'LOGIN.LOGIN_BTN' | translate }}</button>
+        <button class="form-btn" [disabled]="!loginForm.valid" mat-button>{{ 'LOGIN.LOGIN_BTN' | translate }}</button>
       </div>
     </form>
     <p class="error_tdd" *ngIf="wrongUserOrPassword">

@@ -4,7 +4,7 @@
   </mat-form-field>
   <div formArrayName="cities">
     <div class="new_city d-flex align-items-center">
-      <button (click)="add_new_city()" mat-raised-button class="primary-background primary-font-color">{{ 'ADMIN.CITY.add_city' | translate }}</button>
+      <button (click)="add_new_city()" mat-raised-button class="primary-background primary-font-color form-btn">{{ 'ADMIN.CITY.add_city' | translate }}</button>
     </div>
     <mat-form-field *ngFor="let city of newCountry.get('cities')['controls'];let i = index;">
       <input [formControlName]="i" matInput placeholder="{{ 'ADMIN.CITY.city_name' | translate }}">
@@ -14,7 +14,7 @@
 
 <div mat-dialog-actions class="d-flex justify-content-end">
   <button type="submit" (click)="onNoClick()" mat-raised-button
-    class="primary-background primary-font-color">{{ 'ADMIN.DIALOG.no' | translate }}</button>
+    class="primary-background primary-font-color form-btn">{{ 'ADMIN.DIALOG.no' | translate }}</button>
   <button type="submit" (click)="onYesClick()" mat-raised-button
-    class="primary-background primary-font-color">{{ 'ADMIN.DIALOG.yes' | translate }}</button>
+    class="primary-background primary-font-color form-btn">{{ 'ADMIN.DIALOG.yes' | translate }}</button>
 </div>

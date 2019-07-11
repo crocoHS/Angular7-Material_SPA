@@ -29,13 +29,13 @@
         <!-- show info -->
         <div class="brand_info" *ngIf="!target_this_form(brand.brand_name)">
           <p clas="d-flex justify-content-start">
-            <span>{{ 'ADMIN.BRAND.brand_name' | translate }} : </span><span>{{brand.brand_name}}</span>
+            <span class="form-label">{{ 'ADMIN.BRAND.brand_name' | translate }} : </span><span>{{brand.brand_name}}</span>
           </p>
           <p clas="d-flex justify-content-start">
-            <span>{{ 'ADMIN.BRAND.brand_background_color' | translate }} : </span><span>{{brand.brand_background_color}}</span>
+            <span class="form-label">{{ 'ADMIN.BRAND.brand_background_color' | translate }} : </span><span>{{brand.brand_background_color}}</span>
           </p>
           <p clas="d-flex justify-content-start">
-            <span>{{ 'ADMIN.BRAND.brand_logo' | translate }} : </span><span>{{brand.brand_logo}}</span>
+            <span class="form-label">{{ 'ADMIN.BRAND.brand_logo' | translate }} : </span><span>{{brand.brand_logo}}</span>
           </p>
           <div class="countries d-flex">
             <mat-card *ngFor="let country of brand.countries">
@@ -46,22 +46,22 @@
           </div>
           <mat-card *ngFor="let loc of brand.locations">
             <p clas="d-flex justify-content-start">
-              <span>{{ 'ADMIN.LOCATION.location_name' | translate }} : </span><span>{{loc.loc_name}}</span>
+              <span class="form-label">{{ 'ADMIN.LOCATION.location_name' | translate }} : </span><span>{{loc.loc_name}}</span>
             </p>
             <p clas="d-flex justify-content-start">
-              <span>{{ 'ADMIN.LOCATION.location_phone' | translate }} : </span><span>{{loc.loc_phone}}</span>
+              <span class="form-label">{{ 'ADMIN.LOCATION.location_phone' | translate }} : </span><span>{{loc.loc_phone}}</span>
             </p>
             <p clas="d-flex justify-content-start">
-              <span>{{ 'ADMIN.LOCATION.location_longitude' | translate }} : </span><span>{{loc.longitude}}</span>
+              <span class="form-label">{{ 'ADMIN.LOCATION.location_longitude' | translate }} : </span><span>{{loc.longitude}}</span>
             </p>
             <p clas="d-flex justify-content-start">
-              <span>{{ 'ADMIN.LOCATION.location_latitude' | translate }} : </span><span>{{loc.latitude}}</span>
+              <span class="form-label">{{ 'ADMIN.LOCATION.location_latitude' | translate }} : </span><span>{{loc.latitude}}</span>
             </p>
             <p clas="d-flex justify-content-start">
-              <span>{{ 'ADMIN.LOCATION.location_address' | translate }} : </span><span>{{loc.loc_address}}</span>
+              <span class="form-label">{{ 'ADMIN.LOCATION.location_address' | translate }} : </span><span>{{loc.loc_address}}</span>
             </p>
             <p clas="d-flex justify-content-start" *ngIf="loc.loc_city">
-              <span>{{ 'ADMIN.LOCATION.location_city' | translate }} : </span><span>{{loc.loc_city}}</span>
+              <span class="form-label">{{ 'ADMIN.LOCATION.location_city' | translate }} : </span><span>{{loc.loc_city}}</span>
             </p>
           </mat-card>
         </div>
@@ -80,7 +80,7 @@
           </mat-form-field>
 
           <!-- add new country -->
-          <button (click)="insert_country()" mat-raised-button class="secondary-background primary-font-color">{{ 'ADMIN.COUNTRY.add_country' | translate }}</button>
+          <button (click)="insert_country()" mat-raised-button class="secondary-background primary-font-color form-btn">{{ 'ADMIN.COUNTRY.add_country' | translate }}</button>
 
           <div class="post_type_formGroup" formArrayName="countries">
             <div class="post_type_formGroup_record d-flex" *ngFor="let country of editBrand.get('countries')['controls'];let i = index;">
@@ -94,7 +94,7 @@
           </div>
 
           <!-- add new location -->
-          <button (click)="insert_location()" mat-raised-button class="secondary-background primary-font-color">{{ 'ADMIN.LOCATION.add_location' | translate }}</button>
+          <button (click)="insert_location()" mat-raised-button class="secondary-background primary-font-color form-btn">{{ 'ADMIN.LOCATION.add_location' | translate }}</button>
 
           <div class="post_type_formGroup" formArrayName="locations">
             <div class="post_type_formGroup_record d-flex"
@@ -124,7 +124,7 @@
 
                   <!-- choose new city -->
                   <div class="post_type_formGroup">
-                    <button class="secondary-background primary-font-color" mat-button [matMenuTriggerFor]="menu">{{ 'ADMIN.CITY.choose_city' | translate }}</button>
+                    <button class="secondary-background primary-font-color form-btn" mat-button [matMenuTriggerFor]="menu">{{ 'ADMIN.CITY.choose_city' | translate }}</button>
                     <mat-menu #menu="matMenu">
                       <button *ngFor="let city of collected_cities_array" (click)="add_location_city(locationIndex,city)" mat-menu-item>{{city}}</button>
                     </mat-menu>
@@ -144,13 +144,13 @@
         <!-- country block controls -->
         <div class="controls d-flex justify-content-center">
           <button (click)="delete_brand(brand.brand_id)" mat-raised-button
-            class="secondary-background primary-font-color">{{ 'ADMIN.CONTROLS.delete' | translate }}</button>
+            class="secondary-background primary-font-color form-btn">{{ 'ADMIN.CONTROLS.delete' | translate }}</button>
           <button *ngIf="!target_this_form(brand.brand_name)" (click)="active_edit_mode(brand)" mat-raised-button
-            class="secondary-background primary-font-color">{{ 'ADMIN.CONTROLS.edit' | translate }}</button>
+            class="secondary-background primary-font-color form-btn">{{ 'ADMIN.CONTROLS.edit' | translate }}</button>
           <button *ngIf="target_this_form(brand.brand_name)" (click)="end_edit_mode()" mat-raised-button
-            class="secondary-background primary-font-color">{{ 'ADMIN.CONTROLS.cancel' | translate }}</button>
+            class="secondary-background primary-font-color form-btn">{{ 'ADMIN.CONTROLS.cancel' | translate }}</button>
           <button *ngIf="target_this_form(brand.brand_name)" (click)="update_brand(brand.brand_id)" mat-raised-button
-            class="secondary-background primary-font-color">{{ 'ADMIN.CONTROLS.update' | translate }}</button>
+            class="secondary-background primary-font-color form-btn">{{ 'ADMIN.CONTROLS.update' | translate }}</button>
         </div>
 
       </mat-expansion-panel>

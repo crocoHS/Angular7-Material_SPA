@@ -11,8 +11,26 @@ $store-locatto-app-theme: mat-light-theme($store-locatto-app-primary, $store-loc
 
 @include angular-material-theme($store-locatto-app-theme);
 
+div {
+    &[dir='rtl'] {
+        .mat-form-field, h1, .form-label, .form-btn, .mat-expansion-panel-header-title {
+            font-family: 'Markazi Text', sans-serif;
+        }
+        .lang-oppi{
+            font-family: 'Raleway', sans-serif;
+        }
+    }
+    &[dir='ltr'] {
+        .mat-form-field, h1, .form-label, .form-btn, .mat-expansion-panel-header-title {
+            font-family: 'Raleway', sans-serif;
+        }
+        .lang-oppi{
+            font-family: 'Markazi Text', sans-serif;
+        }
+    }
+}
+
 html,body {
-    font-family: 'Raleway', sans-serif;
     background-color: palegreen;
 }
 
@@ -99,4 +117,12 @@ input:-webkit-autofill:active {
         font-weight: bold;
         letter-spacing: 1px;
     }
+}
+
+.form-label {
+    color: darkgreen;
+    font-size: 20px;
+}
+.form-btn {
+    font-size: 18px;
 }
