@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable,NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 
@@ -28,7 +28,7 @@ export class Auth {
     itemsCollection: AngularFirestoreCollection<registerUserDoc>;
     currentUid:string;
 
-    constructor(private db:AngularFirestore, private angularFireAuth:AngularFireAuth, private router:Router) {
+    constructor(private db:AngularFirestore, private angularFireAuth:AngularFireAuth, private router:Router, private _ngZone:NgZone) {
         this.authCustomRootRoute = new Subject();
         this.itemsCollection = this.db.collection<registerUserDoc>('users');
     }
@@ -62,7 +62,9 @@ export class Auth {
     }
 
     redirect_to_url(url:string) {
-        this.router.navigate([url]);
+        this._ngZone.run(()=>{
+            this.router.navigate([url]);
+        });
     }
 
     hideUserTypes() {
@@ -72,4 +74,5 @@ export class Auth {
     showUserTypes() {
         this.authCustomRootRoute.next('block');
     }
+
 }
