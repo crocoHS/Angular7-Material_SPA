@@ -58,7 +58,11 @@ export class Auth {
     }
 
     logOut(): void {
-        this.isLoggedIn = false;
+        this.angularFireAuth.auth.signOut().then(()=>{
+            this.isLoggedIn = false;
+            this.currentUid = null;
+            this.redirect_to_url('/user/login');
+        });
     }
 
     redirect_to_url(url:string) {

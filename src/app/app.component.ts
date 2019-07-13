@@ -19,8 +19,10 @@ export class AppComponent implements OnInit{
   ngOnInit() {
     //reload issue solved by onAuthStateChanged within app constructor
     this.angularFireAuth.auth.onAuthStateChanged((userAutheState)=>{
-      if(userAutheState.uid) {
-        this.auth.authUser(userAutheState.uid);
+      if(userAutheState != null) {
+        if(userAutheState.uid) {
+          this.auth.authUser(userAutheState.uid);
+        }
       }
     });
   }

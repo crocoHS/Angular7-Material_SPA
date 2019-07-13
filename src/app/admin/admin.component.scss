@@ -4,6 +4,22 @@
         height: 100%;
         width:285px;
         padding:15px 0px 0px 15px;
+        .admin-drawer_inside-container {
+            height: 100%;
+        }
+        .loggout-link-entity {
+            margin: 50px 0px 0px 0px;
+            padding: 5px;
+            border-radius: 25px;
+            .sidenav_router_link {
+                font-weight: bold;
+                color:darkgreen;
+                font-size: 20px;
+                display: block;
+                width: 100%;  
+                cursor: pointer;  
+            }
+        }
         .sidenav_router_link {
             font-weight: bold;
             color:#81ac00;
