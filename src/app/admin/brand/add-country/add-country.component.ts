@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { map, debounceTime } from 'rxjs/operators';
+import { map, debounceTime, take } from 'rxjs/operators';
 
 import { MatDialogRef } from '@angular/material/dialog';
 
@@ -37,6 +37,7 @@ export class AddCountryComponent implements OnInit {
       } else {
         this.filterdOpitions = this.country.find_country(value).valueChanges()
         .pipe(
+          take(1),
           map((country:any) => country)
         )
       }

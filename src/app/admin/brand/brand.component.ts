@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormControl, FormArray } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { debounceTime } from 'rxjs/operators';
+import { debounceTime, take } from 'rxjs/operators';
 
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
@@ -85,7 +85,10 @@ export class BrandComponent implements OnInit, OnDestroy {
     brand.countries.forEach((element:string) => {
       const country = new FormControl(element);
       this.edit_mode_countries_array.push(country);
-      this.country.get_country(element).subscribe((result:any)=>{
+      this.country.get_country(element).pipe(
+        take(1)
+      )
+      .subscribe((result:any)=>{
         result[0].cities.forEach((city)=>{
           self.collected_cities_array.push(city.city_name);
         })
@@ -159,7 +162,10 @@ export class BrandComponent implements OnInit, OnDestroy {
         title:"ADMIN.BRAND.update_brand"
       }
     });
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().pipe(
+      take(1)
+    )
+    .subscribe(result => {
       if(result) {
       this.brand.updateItem({brand_id,body:this.editBrand.value}).then(()=>{
           this.end_edit_mode();
@@ -183,7 +189,10 @@ export class BrandComponent implements OnInit, OnDestroy {
     }
 
     this.current_selected_brand.countries.forEach((element:string) => {
-      this.country.get_country(element).subscribe((result:any)=>{
+      this.country.get_country(element).pipe(
+        take(1)
+      )
+      .subscribe((result:any)=>{
         result[0].cities.forEach((city)=>{
           self.collected_cities_array.push(city.city_name);
         })
@@ -221,7 +230,10 @@ export class BrandComponent implements OnInit, OnDestroy {
           component: AddCountryComponent
         }
       });
-      dialogRef.afterClosed().subscribe(result => {
+      dialogRef.afterClosed().pipe(
+        take(1)
+      )
+      .subscribe(result => {
         const newCountry = new FormControl(result.country_name);
         this.edit_mode_countries_array.push(newCountry);
         //update the collected cities as per countries

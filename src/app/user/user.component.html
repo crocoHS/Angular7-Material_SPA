@@ -1,10 +1,10 @@
 <div class="page d-flex justify-content-center align-items-center">
     <div class="page_mid-box d-flex flex-column justify-content-center align-items-center">
         <div [style.display]="authBoxLoaded" class="authBox">
-            <img src="../../assets/user.png" alt="">
+            <img src="../../assets/lock.png" alt="">
             <div class="user-controls">
-                <a class="secondary-font-color secondary-font-size" [routerLink]="[ '/user/login' ]">{{ 'USER.LOGIN' | translate}}</a>
-                <a class="secondary-font-color secondary-font-size" [routerLink]="[ '/user/register' ]">{{ 'USER.REGISTER' | translate}}</a>
+                <a class="secondary-font-size" [routerLink]="[ '/user/login' ]">{{ 'USER.LOGIN' | translate}}</a>
+                <a class="secondary-font-size" [routerLink]="[ '/user/register' ]">{{ 'USER.REGISTER' | translate}}</a>
             </div>
         </div>
         <router-outlet></router-outlet>

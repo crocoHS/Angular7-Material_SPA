@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Auth } from '../../services/auth.service';
 import { MainTransService } from '../../services/mainTrans.service';
 
+import { take } from "rxjs/operators";
+
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
@@ -17,10 +19,14 @@ export class AdminComponent implements OnInit {
   constructor(private auth:Auth,private mainTransService:MainTransService) { }
 
   ngOnInit() {
-    this.auth.getCurrentUserData().subscribe((user:any)=>{
+    this.auth.getCurrentUserData().pipe(
+      take(1)
+    ).subscribe((user:any)=>{
       this.currentUserName = user[0].fName;
     });
-    this.auth.authCustomRootRoute.subscribe((value:string)=>{
+    this.auth.authCustomRootRoute.pipe(
+      take(1)
+    ).subscribe((value:string)=>{
       this.authCustom = value;
     });
     //get lang value to adjust drawer position for ar and en
