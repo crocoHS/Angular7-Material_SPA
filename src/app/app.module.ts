@@ -20,7 +20,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 
 //app environment
-import { environment } from '../environments/environment';
+import { environment } from '../environments/environment.prod';
 
 //app service
 import { Auth } from '../services/auth.service';
