@@ -1,4 +1,4 @@
-# angular-spa-showcase
+# angular-spa-material
 
 
 https://quirky-brown-a85f70.netlify.com
