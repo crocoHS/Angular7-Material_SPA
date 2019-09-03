@@ -2,7 +2,7 @@
   <div class="d-flex flex-column align-items-center">
     <form (ngSubmit)="onSubmitLogin(loginForm)" #loginForm="ngForm">
       <mat-form-field>
-        <input type="email" matInput placeholder="{{ 'LOGIN.EMAIL.name' | translate }}" ngModel [ngModelOptions]="{ updateOn: 'blur' }" name="email" required email #email="ngModel">
+        <input type="email" matInput placeholder="{{ 'LOGIN.EMAIL.name' | translate }}" ngModel name="email" required email #email="ngModel">
         <mat-error *ngIf="email.errors?.required">{{ 'LOGIN.EMAIL.error1' | translate }}</mat-error>
         <mat-error *ngIf="email.errors?.email">{{ 'LOGIN.EMAIL.error2' | translate }}</mat-error>
       </mat-form-field>

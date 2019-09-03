@@ -21,9 +21,8 @@ export class RegisterComponent implements OnInit, OnDestroy {
   }
 
   onSubmitRegister(regForm:NgForm) {
-    // const newUser = {...registerForm.value}
-    // this.auth.register(newUser);
-    console.log(regForm);
+    const newUser = {...regForm.value};
+    this.auth.register(newUser);
   }
 
 }

@@ -2,6 +2,13 @@
     .page_mid-box {
         & > div { text-align: center; }
         .user-controls {
+            @media screen and (max-width:320px){
+                a {
+                    display: block;
+                    text-align: center;
+                    margin-top: 15px;
+                }
+            }
             a,span {
                 margin:0px 15px;
                 color: darkgreen;

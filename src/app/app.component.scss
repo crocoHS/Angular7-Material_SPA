@@ -7,10 +7,18 @@
         position: absolute;
         top: 0%;
         right: 0%;
+        @media screen and (max-width:768px){
+            position: unset;
+            top: unset;
+            right: unset;
+        }
         padding: 50px 50px 0px 0px;
         button {
             margin:0 15px 0px 0px;
             border:none;
+            @media screen and (max-width:768px){
+                float: right;
+            }   
             span {
                 font-size: 22px;
             }
