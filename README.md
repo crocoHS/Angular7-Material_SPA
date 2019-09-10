@@ -1,4 +1,4 @@
-# angular-spa-material
+# Single Page Application using Angular 7, Material
 
 
 https://quirky-brown-a85f70.netlify.com
